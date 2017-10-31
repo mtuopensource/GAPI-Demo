@@ -37,7 +37,26 @@ public class Demo {
 	}
 
 	public void listDates(String calendarId, int numEvents) {
-
+		try {
+			Calendar service = getCalendarService();
+			DateTime now = new DateTime(System.currentTimeMillis());
+			Events eventsList = service.events().list(calendarId).setMaxResults(numEvents).setTimeMin(now)
+					.setOrderBy("startTime").setSingleEvents(true).execute();
+			List<Event> items = eventsList.getItems();
+			if(items.size() == 0) {
+				System.out.println("No events were found");
+			} else {
+				for(Event event : items) {
+					DateTime start = event.getStart().getDateTime();
+					if(start == null) {
+						start = event.getStart().getDate();
+					}
+					System.out.printf("%s (%s) : %s %n", event.getSummary(), event.getDescription(), start);
+				}
+			}
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Credential authorize() throws IOException {
