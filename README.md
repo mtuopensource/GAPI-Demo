@@ -14,9 +14,8 @@ Some boilerplate code for working with the Google API in Java/Android.
 2.  Select `APIs & services` and `Credentials`.
 3.  Select `Create credentials` and choose `OAuth Client ID`.
 4.  Select `Other` and `Finish`.
-5.  Download the credentials file and rename it to `client_secret.json`.
-6.  Copy it to the root directory.
-7.  Import the Gradle project in your favorite IDE.
+5.  Download the credentials file and rename it to `client_secret.json`. Copy it into the root project directory.
+6.  Import the Gradle project in your favorite IDE.
 
 ## Copyright and License
 Code released under [MIT License](LICENSE).
