@@ -29,8 +29,7 @@ import com.google.api.services.calendar.model.Events;
 public class CalendarDemo {
 	private static final String APPLICATION_NAME = "Google-API-Boilerplate";
 	private static final String OAUTH_SECRETS = "client_secret.json"; // Added to .gitignore, so not public.
-	private static final File OAUTH_DIRECTORY = new File(System.getProperty("user.home"),
-			".credentials" + File.separator + APPLICATION_NAME); // Where credentials are cached
+	private static final File OAUTH_DIRECTORY = new File(System.getProperty("user.home"), ".credentials" + File.separator + APPLICATION_NAME); // Where credentials are cached
 	private static final List<String> SCOPES = Arrays.asList(CalendarScopes.CALENDAR_READONLY); // Permissions requested, full list can be found at https://developers.google.com/identity/protocols/googlescopes
 	private JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
 	private FileDataStoreFactory dataStoreFactory;
@@ -62,7 +61,9 @@ public class CalendarDemo {
 			DateTime now = new DateTime(System.currentTimeMillis()); // The current date and time, used to build the query.
 
 			/*
-			 * Request a list of events from the Calendar with id calendarId. Maximum of numEvents items, but it may be less if the Calendar is sparse. Only events that occur in the future. Ordered in ascending order by time. Ignore duplicate events. Execute the query.
+			 * Request a list of events from the Calendar with id calendarId. Maximum of numEvents items, but it may be less if 
+			 * the Calendar is sparse. Only events that occur in the future. Ordered in ascending order by time. Ignore 
+			 * duplicate events. Execute the query.
 			 */
 			Events query = service.events().list(calendarId).setMaxResults(numEvents).setTimeMin(now).setOrderBy("startTime")
 					.setSingleEvents(true).execute();
