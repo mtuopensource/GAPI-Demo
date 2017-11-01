@@ -48,6 +48,7 @@ Thumbs.db
 */build
 
 # IntelliJ specific files/directories
+bin
 out
 .idea
 *.ipr
